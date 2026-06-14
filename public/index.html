@@ -1,113 +1,108 @@
 <!DOCTYPE html>
+
 <html lang="uz">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LAL ANAAR</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
+```
+<header>
 
-        <div class="logo">
-            LAL ANAAR
+    <div class="logo">
+        LAL ANAAR
+    </div>
+
+    <div style="display:flex;gap:10px;align-items:center;">
+
+        <div class="admin-btn" onclick="openAdmin()">
+            ⚙️ Admin
         </div>
 
-        <div style="display:flex;gap:10px;align-items:center;">
-
-            <div class="admin-btn" onclick="openAdmin()">
-                ⚙️ Admin
-            </div>
-
-            <div class="cart-btn" onclick="openCart()">
-                🛒 Savat
-                <span id="cartCount">0</span>
-            </div>
-
-        </div>
-
-    </header>
-
-    <section class="hero">
-
-        <div class="hero-content">
-
-            <h1>Tabiiy Anor Sharbatlari</h1>
-
-            <p>
-                Sifatli va foydali Lal Anaar mahsulotlari
-            </p>
-
-        </div>
-
-    </section>
-
-    <section class="products">
-
-        <h2>Mahsulotlar</h2>
-
-        <div id="productContainer"></div>
-
-    </section>
-
-    <!-- SAVAT -->
-
-    <div id="cartModal" class="cartModal">
-
-        <div class="cartBox">
-
-            <div class="cartHeader">
-
-                <h2>Savat</h2>
-
-                <button class="closeBtn" onclick="closeCart()">
-                    ✕
-                </button>
-
-            </div>
-
-            <div id="cartItems"></div>
-
-            <h3 id="cartTotal">
-                0 so'm
-            </h3>
-
-            <!-- BUYURTMA FORMASI -->
-
-            <div class="orderForm">
-
-                <input
-                    type="text"
-                    id="customerName"
-                    placeholder="Ismingiz">
-
-                <input
-                    type="text"
-                    id="customerPhone"
-                    placeholder="+998901234567">
-
-                <input
-                    type="text"
-                    id="customerLocation"
-                    placeholder="Manzil yoki lokatsiya">
-
-            </div>
-
-            <button class="checkoutBtn">
-                Buyurtma berish
-            </button>
-
+        <div class="cart-btn" onclick="openCart()">
+            🛒 Savat
+            <span id="cartCount">0</span>
         </div>
 
     </div>
 
-    <script src="app.js"></script>
+</header>
 
-</body>
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>Tabiiy Anor Sharbatlari</h1>
+
+        <p>
+            Sifatli va foydali Lal Anaar mahsulotlari
+        </p>
+
+    </div>
+
+</section>
+
+<section class="products">
+
+    <h2>Mahsulotlar</h2>
+
+    <div id="productContainer"></div>
+
+</section>
+
+<!-- SAVAT -->
+
+<div id="cartModal" class="cartModal">
+
+    <div class="cartBox">
+
+        <div class="cartHeader">
+
+            <h2>Savat</h2>
+
+            <button class="closeBtn" onclick="closeCart()">
+                ✕
+            </button>
+
+        </div>
+
+        <div id="cartItems"></div>
+
+        <h3 id="cartTotal">
+            0 so'm
+        </h3>
+
+        <div class="orderForm">
+
+            <input
+                type="text"
+                id="customerName"
+                placeholder="Ismingiz">
+
+            <input
+                type="text"
+                id="customerPhone"
+                placeholder="+998901234567">
+
+            <input
+                type="text"
+                id="customerLocation"
+                placeholder="Manzil yoki lokatsiya">
+
+        </div>
+
+        <button class="checkoutBtn">
+            Buyurtma berish
+        </button>
+
+    </div>
+
+</div>
 
 <!-- BIZ BILAN ALOQA -->
 
@@ -123,7 +118,7 @@
             📲 Qo'ng'iroq qilish
         </a>
 
-        <a href="https://t.me/Real_212113" class="callBtn">
+        <a href="https://t.me/Real_212113" class="callBtn" target="_blank">
             ✈️ Telegram yozish
         </a>
 
@@ -132,6 +127,8 @@
 </section>
 
 <script src="app.js"></script>
+```
 
 </body>
+
 </html>
