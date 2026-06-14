@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+<meta charset="UTF-8">
+<title>Admin Panel</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+<div class="panel">
+
+<h1>🛠 Mahsulot qo'shish</h1>
+
+<form id="productForm">
+
+<input
+type="text"
+name="name"
+placeholder="Mahsulot nomi"
+required>
+
+<input
+type="number"
+name="price"
+placeholder="Narx"
+required>
+
+<input
+type="file"
+name="image"
+required>
+
+<button type="submit">
+➕ Saqlash
+</button>
+
+</form>
+
+<hr>
+
+<h2>📦 Mahsulotlar</h2>
+
+<div id="list"></div>
+
+<br>
+
+<button onclick="logout()">
+🚪 Chiqish
+</button>
+
+</div>
+
+<script src="admin.js"></script>
+
+<script>
+function logout(){
+    window.location.href = "/";
+}
+</script>
+
+</body>
+
+</html>

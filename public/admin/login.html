@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>Admin Login</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+<div class="panel">
+
+<h1>🔐 Admin Login</h1>
+
+<input type="text" id="username" placeholder="Login">
+<input type="password" id="password" placeholder="Parol">
+
+<button onclick="login()">
+Kirish
+</button>
+
+<p id="msg"></p>
+
+</div>
+
+<script>
+async function login() {
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    const res = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ username, password })
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+
+        localStorage.setItem("admin_token", data.token);
+
+        window.location.href = "/admin.html";
+
+    } else {
+
+        document.getElementById("msg").innerText =
+        "❌ Login yoki parol xato";
+
+    }
+
+}
+</script>
+
+</body>
+</html>
