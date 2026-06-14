@@ -121,4 +121,18 @@ ${Number(total).toLocaleString()} so'm
 
     }
 
+});app.post("/api/login", (req, res) => {
+    const { login, password } = req.body;
+
+    if(login === "lalanaar1" && password === "1999"){
+        res.json({ success: true });
+    } else {
+        res.json({ success: false });
+    }
+});const res = await fetch("/api/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ login, password })
 });
+
+const data = await res.json();
