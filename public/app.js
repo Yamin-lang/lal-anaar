@@ -190,13 +190,12 @@ function openAdmin() {
 
     const password = prompt("Admin parolini kiriting");
 
-    if (password === "12345") {
+    if (password === "LalAnaar2026") {
         window.location.href = "/admin/admin.html";
     } else {
         alert("Parol noto'g'ri");
     }
 }
-
 /* ===========================
    ORDER BUTTON
 =========================== */
