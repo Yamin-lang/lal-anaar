@@ -187,30 +187,8 @@ function closeCart() {
 =========================== */
 
 function openAdmin() {
-
-    const login = prompt("Loginni kiriting");
-
-    if (login !== "lalanaar1") {
-        alert("Login noto'g'ri");
-        return;
-    }
-
-    const password = prompt("Parolni kiriting");
-
-    if (password === "1999") {
-
-        window.location.href = "/admin/admin.html";
-
-    } else {
-
-        alert("Parol noto'g'ri");
-
-    }
-
+window.location.href = "/admin/admin.html";
 }
-/* ===========================
-   ORDER BUTTON
-=========================== */
 
 document.querySelector(".checkoutBtn")
 .addEventListener("click", sendOrder);
