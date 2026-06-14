@@ -283,4 +283,23 @@ app.listen(PORT, () => {
 =================================
 `);
 
+});bot.onText(/\/start/, (msg) => {
+
+    bot.sendMessage(
+        msg.chat.id,
+        "🍎 Lal Anaar katalogiga xush kelibsiz",
+        {
+            reply_markup: {
+                inline_keyboard: [
+                    [
+                        {
+                            text: "📦 Katalog",
+                            url: "https://lal-anaar.onrender.com"
+                        }
+                    ]
+                ]
+            }
+        }
+    );
+
 });
