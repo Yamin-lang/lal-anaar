@@ -1,10 +1,9 @@
-const token = localStorage.getItem("admin_token");
-
-if (!token) {
-    window.location.href = "/admin/login.html";
-}
 const form = document.getElementById("productForm");
 const list = document.getElementById("list");
+
+/* =========================
+   ADD PRODUCT
+========================= */
 
 form.addEventListener("submit", async (e) => {
 
@@ -20,18 +19,29 @@ form.addEventListener("submit", async (e) => {
     const data = await res.json();
 
     if (data.success) {
-        alert("Qo'shildi!");
+
+        alert("✅ Mahsulot qo'shildi");
+
         form.reset();
+
         loadProducts();
+
     } else {
-        alert("Xatolik!");
+
+        alert("❌ Xatolik yuz berdi");
+
     }
 
 });
 
+/* =========================
+   LOAD PRODUCTS
+========================= */
+
 async function loadProducts() {
 
     const res = await fetch("/api/products");
+
     const products = await res.json();
 
     list.innerHTML = "";
@@ -40,33 +50,66 @@ async function loadProducts() {
 
         list.innerHTML += `
             <div class="item">
-                <img src="/uploads/${p.image}" width="80">
+
+                <img
+                    src="/uploads/${p.image}"
+                    width="80"
+                >
 
                 <div>
                     <b>${p.name}</b><br>
                     ${Number(p.price).toLocaleString()} so'm
                 </div>
 
-                <button onclick="deleteProduct(${p.id})">
+                <button
+                    onclick="deleteProduct(${p.id})"
+                >
                     🗑 O'chirish
                 </button>
+
             </div>
         `;
+
     });
+
 }
+
+/* =========================
+   DELETE PRODUCT
+========================= */
 
 async function deleteProduct(id) {
 
-    if (!confirm("O'chirasizmi?")) return;
+    const check =
+        confirm("Mahsulotni o'chirasizmi?");
 
-    await fetch("/api/product/${id}", {
-        method: "DELETE"
-    });
+    if (!check) return;
 
-    loadProducts();
+    const res = await fetch(
+        `/api/product/${id}`,
+        {
+            method: "DELETE"
+        }
+    );
+
+    const data = await res.json();
+
+    if (data.success) {
+
+        alert("🗑 Mahsulot o'chirildi");
+
+        loadProducts();
+
+    } else {
+
+        alert("❌ O'chirishda xatolik");
+
+    }
+
 }
 
-loadProducts();function logout() {
-    localStorage.removeItem("admin_token");
-    window.location.href = "/admin/login.html";
-}
+/* =========================
+   START
+========================= */
+
+loadProducts();
