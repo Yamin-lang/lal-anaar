@@ -188,13 +188,25 @@ function closeCart() {
 
 function openAdmin() {
 
-    const password = prompt("Admin parolini kiriting");
+    const login = prompt("Loginni kiriting");
 
-    if (password === "LalAnaar2026") {
-        window.location.href = "/admin/admin.html";
-    } else {
-        alert("Parol noto'g'ri");
+    if (login !== "lalanaar1") {
+        alert("Login noto'g'ri");
+        return;
     }
+
+    const password = prompt("Parolni kiriting");
+
+    if (password === "1999") {
+
+        window.location.href = "/admin/admin.html";
+
+    } else {
+
+        alert("Parol noto'g'ri");
+
+    }
+
 }
 /* ===========================
    ORDER BUTTON
