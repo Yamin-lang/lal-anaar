@@ -20,9 +20,8 @@ app.use("/uploads", express.static("uploads"));
 
 const bot = new TelegramBot(
     process.env.BOT_TOKEN,
-    { polling: false }
+    { polling: true }
 );
-
 /* =========================
    DATABASE
 ========================= */
@@ -264,6 +263,29 @@ return res.status(401).json({
     message: "Login yoki parol noto'g'ri"
 });
 ```
+
+});/* =========================
+   TELEGRAM START
+========================= */
+
+bot.onText(/\/start/, (msg) => {
+
+    bot.sendMessage(
+        msg.chat.id,
+        "🍎 Lal Anaar katalogiga xush kelibsiz",
+        {
+            reply_markup: {
+                inline_keyboard: [
+                    [
+                        {
+                            text: "📦 Katalog",
+                            url: "https://lal-anaar.onrender.com"
+                        }
+                    ]
+                ]
+            }
+        }
+    );
 
 });
 
